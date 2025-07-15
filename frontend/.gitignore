@@ -1,0 +1,35 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependency directories
+node_modules/
+
+# Vite build output
+dist/
+dist-ssr/
+
+# Local environment files
+.env
+.env.*.local
+.vitepress/cache/
+
+# System files
+.DS_Store
+
+# IDE/editor settings
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Others
+*.local
