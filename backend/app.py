@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask,request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 
@@ -7,6 +7,8 @@ app = Flask(__name__)
 CORS(app)
 
 uri = os.environ.get("DATABASE_URL")
+
+# Only replace if the URI starts with 'postgres://'
 if uri and uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
 
