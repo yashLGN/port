@@ -19,6 +19,7 @@ A modern, minimal, and responsive site to showcase my skills, coding journey, an
 
 ### Backend:
 - Flask (for future expansion)
+- PostgreSQL via Neon (sqlite was used but removed becasue of server waking time)
 
 ---
 
