@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-export default function Post_reviews() {
+export default function Post_reviews({ onSubmitSuccess }) {
   const [name, setName] = useState('');
   const [comment, setComment] = useState('');
 
@@ -13,18 +13,21 @@ const handleKeyPress = (e) => {
       return;
     }
 
-    fetch('http://localhost:8000/api/submit', { // else this happens when user entered smth meaningful
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' }, // data sent to db
-      body: JSON.stringify({ name, comment })
-    });
-
-    console.log('Submitted:', { name, comment });
-    setName('');
-    setComment('');
+fetch('http://localhost:8000/api/submit', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ name, comment })
+})
+.then(res => res.json())
+.then(data => {
+  console.log('Submitted:', data);
+  setName('');
+  setComment('');
+  onSubmitSuccess(); // ← refreshes the review table!
+})
+.catch(err => console.error('Error:', err));
   }
-};
-
+}
 
   return (
     <div style={{
@@ -56,6 +59,7 @@ const handleKeyPress = (e) => {
           placeholder="> your name"
           value={name}
           onChange={e => setName(e.target.value)}
+          maxLength={30}
           style={{
             backgroundColor: '#121212',
             color: '#ffffff',
@@ -75,6 +79,7 @@ const handleKeyPress = (e) => {
           value={comment}
           onChange={e => setComment(e.target.value)}
           onKeyDown={handleKeyPress}
+          maxLength={80}
           style={{
             backgroundColor: '#121212',
             color: '#ffffff',
@@ -91,51 +96,70 @@ const handleKeyPress = (e) => {
   );
 }
 
+export function ReviewsTable({ refreshTrigger }) {
+  const [reviews, setReviews] = useState([]);
 
-const dummyReviews = [
-  { id: 1, name: 'Alice', comment: 'Super slick website!' },
-  { id: 2, name: 'Bob', comment: 'Loved the terminal vibe.' },
-  { id: 3, name: 'Charlie', comment: 'Very creative design 👏' }
-];
+  useEffect(() => {
+    fetch('http://localhost:8000/api/comments')
+      .then(res => res.json())
+      .then(data => setReviews(data))
+      .catch(err => console.error('Error fetching reviews:', err));
+  }, [refreshTrigger]);
 
-export function ReviewsTable() {
   return (
-    <div style={{
-      marginTop: '40px',
-      display: 'flex',
-      justifyContent: 'center',
-      padding: '0 20px'
+ <div style={{
+  marginTop: '40px',
+  display: 'flex',
+  justifyContent: 'center',
+  padding: '0 20px'
+}}>
+  <div style={{ width: '100%', maxWidth: '700px' }}>
+    <table style={{
+      width: '100%',
+      borderCollapse: 'collapse',
+      fontFamily: 'monospace',
+      backgroundColor: '#1e1e1e',
+      color: '#ffffff',
+      borderRadius: '8px',
+      overflow: 'hidden',
+      tableLayout: 'fixed'
     }}>
-      <table style={{
-        width: '100%',
-        maxWidth: '700px',
-        borderCollapse: 'collapse',
-        fontFamily: 'monospace',
-        backgroundColor: '#1e1e1e',
-        color: '#ffffff',
-        borderRadius: '8px',
-        overflow: 'hidden'
-      }}>
-        <thead>
-          <tr style={{
-            backgroundColor: '#121212',
-            color: 'white',
-            textAlign: 'left',
-            fontSize: '16px'
-          }}>
-            <th style={{ padding: '12px 16px' }}>Name</th>
-            <th style={{ padding: '12px 16px' }}>Comment</th>
+      <thead>
+        <tr style={{
+          backgroundColor: '#121212',
+          color: 'white',
+          textAlign: 'left',
+          fontSize: '16px'
+        }}>
+          <th style={{ padding: '12px 16px' }}>Name</th>
+          <th style={{ padding: '12px 16px' }}>Comment</th>
+        </tr>
+      </thead>
+      <tbody>
+        {reviews.map((review) => (
+          <tr key={review.id} style={{ borderTop: '1px solid #333' }}>
+            <td style={{
+              padding: '12px 16px',
+              color: '#ffb24c',
+              wordBreak: 'break-word',
+              verticalAlign: 'top',
+              maxWidth: '120px'
+            }}>
+              {review.name}
+            </td>
+            <td style={{
+              padding: '12px 16px',
+              wordBreak: 'break-word',
+              whiteSpace: 'pre-wrap',
+              verticalAlign: 'top'
+            }}>
+              {review.comment}
+            </td>
           </tr>
-        </thead>
-        <tbody>
-          {dummyReviews.map((review) => (
-            <tr key={review.id} style={{ borderTop: '1px solid #333' }}>
-              <td style={{ padding: '12px 16px', color: '#ffb24c' }}>{review.name}</td>
-              <td style={{ padding: '12px 16px' }}>{review.comment}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
   );
 }

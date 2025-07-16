@@ -9,8 +9,14 @@ import Paragraph from './paragraph.jsx';
 import { TerminalInfo } from './paragraph.jsx';
 import Post_reviews from './reviews.jsx';
 import { ReviewsTable } from './reviews.jsx';
+import React, { useState } from 'react';
 
 function App() {
+
+    const [refreshFlag, setRefreshFlag] = useState(false);
+
+    const refreshReviews = () => setRefreshFlag(prev => !prev);
+
   return (
     <>
     <div className="terminal-div">
@@ -39,10 +45,10 @@ function App() {
       <Heading4/>
     </div>
     <div className='parathree'>
-      <Post_reviews/>
+      <Post_reviews onSubmitSuccess={refreshReviews} />
     </div>
     <div className="review_table">
-      <ReviewsTable/>
+     <ReviewsTable refreshTrigger={refreshFlag} />
     </div>
     </>
   );
