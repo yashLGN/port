@@ -1,10 +1,12 @@
 from flask import Flask, render_template, request, redirect, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///reviews.db'  # indentity of db / configure
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///reviews.db'  # indentity of db / configure
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL")
 db = SQLAlchemy(app) # connecting flask and db
 
 class comments(db.Model):
@@ -35,6 +37,3 @@ def get_comments():
     all_comments = comments.query.all()
     data = [{'id': c.id, 'name': c.name, 'comment': c.comment} for c in all_comments] # keeps getting data from db
     return jsonify(data)
-
-if __name__ == '__main__':
-    app.run(debug=True, port=8000)
