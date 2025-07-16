@@ -45,3 +45,6 @@ def get_comments():
     all_comments = comments.query.all()
     data = [{'id': c.id, 'name': c.name, 'comment': c.comment} for c in all_comments] # keeps getting data from db
     return jsonify(data)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
