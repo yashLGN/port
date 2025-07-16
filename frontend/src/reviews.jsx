@@ -51,7 +51,7 @@ fetch('https://port-backend-jl7a.onrender.com/api/submit', {
           color: 'white',
           fontWeight: 'bold'
         }}>
-          Enter your name and comment — press <span style={{ color: '#ff6ac1' }}>Enter</span> to submit
+          Enter your name and comment — press <span style={{ color: '#ff6ac1' }}>Enter</span> to submit, Sometimes might take a minute to upload.
         </div>
 
         <input
