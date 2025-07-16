@@ -259,9 +259,13 @@ h2 {
   position: relative;
 }
 
-
-
-
-
-
+.customtext {
+  padding: 12px 16px;
+  color: #ffb24c;
+  word-break: break-word;
+  vertical-align: top;
+  max-width: 120px;
+  white-space: nowrap;
+  display: flex;
+}
 

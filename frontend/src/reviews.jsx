@@ -23,7 +23,7 @@ fetch('https://port-bu0p.onrender.com/api/submit', {
   console.log('Submitted:', data);
   setName('');
   setComment('');
-  onSubmitSuccess(); // ← refreshes the review table!
+  onSubmitSuccess(); // refreshes the review table!
 })
 .catch(err => console.error('Error:', err));
   }
@@ -139,6 +139,9 @@ export function ReviewsTable({ refreshTrigger }) {
         </tr>
       </thead>
       <tbody>
+      <tr className='customtext'>
+        Comments may take <br/>20-30 seconds to load.
+      </tr>
         {reviews.map((review) => (
           <tr key={review.id} style={{ borderTop: '1px solid #333' }}>
             <td style={{
