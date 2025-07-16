@@ -1,11 +1,11 @@
-from flask import Flask, render_template, request, redirect, jsonify
+import os
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-import os
 
 app = Flask(__name__)
 CORS(app)
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///reviews.db'  # indentity of db / configure
+
 uri = os.environ.get("DATABASE_URL")
 if uri and uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
@@ -13,7 +13,7 @@ if uri and uri.startswith("postgres://"):
 app.config['SQLALCHEMY_DATABASE_URI'] = uri
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app) # connecting flask and db
+db = SQLAlchemy(app)
 
 class comments(db.Model):
     id = db.Column(db.Integer, primary_key=True)  # MAKING FORMAT FOR DATABASE in which it will save things
