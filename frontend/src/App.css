@@ -16,6 +16,14 @@ html, body, #root {
   background: #c34cff;
   color: black;
 }
+.selectedred::selection {
+  background-color: #ff4c7c;
+  color: black;
+}
+.selectedyellow::selection {
+  background-color: #ffb24c;
+  color: black;
+}
 
 .terminal-div {
   height: 50vh;
@@ -230,7 +238,26 @@ h2 {
   }
 }
 
+.paratwo {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  position: relative;
+  margin-bottom: 20px;
+}
 
+.parathree {
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  position: relative;
+}
 
 
 

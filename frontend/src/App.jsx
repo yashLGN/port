@@ -2,8 +2,13 @@ import './App.css'
 import Terminal from './terminal.jsx'
 import Github_buttons from './github_buttons.jsx'
 import Heading from './heading.jsx';
-import {Heading2} from './heading.jsx';
+import { Heading2 } from './heading.jsx';
+import { Heading3 } from './heading.jsx';
+import { Heading4 } from './heading.jsx';
 import Paragraph from './paragraph.jsx';
+import { TerminalInfo } from './paragraph.jsx';
+import Post_reviews from './reviews.jsx';
+import { ReviewsTable } from './reviews.jsx';
 
 function App() {
   return (
@@ -23,6 +28,21 @@ function App() {
     </div>
       <div className="headingone"> 
       <Heading2/>
+    </div>
+    <div className='headingone'>
+      <Heading3/>
+    </div>
+    <div className='paratwo'>
+      <TerminalInfo/>
+    </div>
+    <div className="headingone">
+      <Heading4/>
+    </div>
+    <div className='parathree'>
+      <Post_reviews/>
+    </div>
+    <div className="review_table">
+      <ReviewsTable/>
     </div>
     </>
   );

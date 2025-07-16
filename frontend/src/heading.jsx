@@ -16,3 +16,21 @@ export function Heading2() {
         </div>
     )
 }
+
+export function Heading3() {
+    return (
+        <div>
+            <h1 className='headingonetxt selectedred' style={{ color: '#ff4c7c'}}>native asf.</h1>
+            <h1 className='paragraph-content-1 selectedred' style={{ color: 'white'}}>Some system info</h1>
+        </div>
+    )
+}
+
+export function Heading4() {
+    return (
+        <div>
+            <h1 className='headingonetxt selectedyellow' style={{ color: '#ffb24c'}}>comments</h1>
+        </div>
+    )
+}
+
