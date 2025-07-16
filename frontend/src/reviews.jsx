@@ -53,8 +53,6 @@ fetch('https://port-bu0p.onrender.com/api/submit', {
         }}>
           Enter your name and comment — press <span style={{ color: '#ff6ac1' }}>Enter&nbsp;</span>
            to submit. <br/>
-           Server may take a minute to wake up.
-            Please wait after pressing Enter.
         </div>
 
         <input
@@ -140,7 +138,7 @@ export function ReviewsTable({ refreshTrigger }) {
       </thead>
       <tbody>
       <tr className='customtext'>
-        Comments may take <br/>20-30 seconds to load.
+        Comments may take <br/>20-30 seconds to load.<br/> Refresh after it.
       </tr>
         {reviews.map((review) => (
           <tr key={review.id} style={{ borderTop: '1px solid #333' }}>
