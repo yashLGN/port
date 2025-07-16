@@ -51,7 +51,7 @@ fetch('https://port-bu0p.onrender.com/api/submit', {
           color: 'white',
           fontWeight: 'bold'
         }}>
-          Enter your name and comment — press <span style={{ color: '#ff6ac1' }}>Enter</span>
+          Enter your name and comment — press <span style={{ color: '#ff6ac1' }}>Enter&nbsp;</span>
            to submit. <br/>
            Server may take a minute to wake up.
             Please wait after pressing Enter.
