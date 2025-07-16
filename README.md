@@ -1,4 +1,4 @@
-# Under Development
+# Under Development (btw it looks better on pc i think)
 
 A modern, minimal, and responsive site to showcase my skills, coding journey, and take reviews.
 
