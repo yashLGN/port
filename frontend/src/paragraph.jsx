@@ -10,7 +10,7 @@ export default function Paragraph() {
         I love combining functionality with clean design. Python is my favorite language, and 
         I’m currently learning full-stack web development using it.
         So far, I’ve worked with tools like React, Flask, Bootstrap, Git, and VS Code. I learn by building, 
-        and yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap yap
+        and yap yap yap yap yap yap
       </p>
     </div>
   )
