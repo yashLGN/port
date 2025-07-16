@@ -3,7 +3,7 @@ import React from 'react'
 export default function Heading(props) {
   return (
     <div>
-      <h2 className='headingonetxt selectedgreen'>Just a guy building <br/>cool stuff with code.</h2>
+      <h2 className='headingonetxt selectedgreen' style={{ color: '#4cffb2'}}>Just a guy building <br/>cool stuff with code.</h2>
     </div>
   )
 }

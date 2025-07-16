@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   padding: 0;
   background-color: black;
@@ -219,6 +219,239 @@ h1 {
   .paragraph-content-1, .fade-wrapper, .paraone, h1, h2 {
     visibility: hidden;
   }
+} */
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
 }
+
+html, body, #root {
+  height: 100%;
+}
+
+.selectedgreen::selection {
+  background: #4cffb2;
+  color: black;
+}
+.selectedpurple::selection {
+  background: #c34cff;
+  color: black;
+}
+
+.terminal-div {
+  height: 50vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  margin-top: 20px;
+  background-color: transparent;
+}
+
+.terminal-outest {
+  background-color: #1e1e1e;
+  color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'Courier New', monospace;
+  width: 600px;
+  height: 100%;
+  max-width: 90vw;
+}
+
+.terminal-header {
+  background-color: #2d2d2d;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.traffic-buttons {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.terminal-code {
+  background-color: #1e1e1e;
+  font-size: 14px;
+  white-space: pre-wrap;
+  line-height: 1.4;
+}
+
+.line {
+  display: block;
+}
+.blinking-cursor {
+  display: inline-block;
+  width: 10px;
+  animation: blink 1s step-start infinite;
+  color: white;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.github-buttons {
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  background-color: transparent;
+  margin-bottom: 30px;
+}
+
+.github-button {
+  border: 1px white solid;
+  color: white;
+}
+.github-button:focus,
+.github-button:active,
+.github-button:hover {
+  color: black;
+  background-color: white;
+}
+
+.headingone {
+  height: 20vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  background-color: transparent;
+}
+
+h1,
+h2 {
+  font-size: 57px;
+  line-height: 50px;
+  font-family: 'Rubik', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.paraone {
+  height: 30vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  position: relative;
+}
+
+.paragraph-content-1 {
+  width: 43vw;
+  font-weight: 300;
+  font-size: large;
+  color: white;
+}
+.paragraph-content-1::selection {
+  background: #4cffb2;
+  color: black;
+}
+
+.fade-wrapper {
+  background: linear-gradient(357deg, rgba(0, 0, 0, 1) 20%, rgba(10, 10, 10, 0) 70%);
+  height: 100%;
+  position: absolute;
+  width: 45vw;
+  background-color: transparent;
+}
+
+@media (max-width: 1024px) {
+  .paragraph-content-1 {
+    font-size: medium;
+    width: 60vw;
+  }
+
+  .fade-wrapper {
+    width: 60vw;
+  }
+
+  h1,
+  h2 {
+    font-size: 42px;
+    line-height: 42px;
+  }
+}
+
+@media (max-width: 640px) {
+  .paragraph-content-1 {
+    font-size: small;
+    width: 80vw;
+    margin: 30px 0;
+  }
+
+  .fade-wrapper {
+    width: 80vw;
+    height: 100%;
+  }
+
+  .headingone {
+    height: auto;
+    margin-top: 10px;
+  }
+
+  h1,
+  h2 {
+    font-size: 32px;
+    line-height: 38px;
+  }
+}
+
+@media (max-width: 340px) {
+  .paragraph-content-1,
+  .fade-wrapper,
+  .headingone,
+  h1,
+  h2 {
+    visibility: hidden;
+  }
+}
+
+@media (min-width: 1600px) {
+  .paragraph-content-1 {
+    width: 35vw;
+    font-size: x-large;
+  }
+
+  .fade-wrapper {
+    width: 35vw;
+  }
+
+  h1, h2 {
+    font-size: 72px;
+    line-height: 60px;
+  }
+}
+
+@media (min-width: 2100px) {
+  .paragraph-content-1 {
+    width: 48vw;
+    font-size: xx-large;
+  }
+
+  .fade-wrapper {
+    width: 48vw;
+  }
+
+  h1, h2 {
+    font-size: 85px;
+    line-height: 70px;
+  }
+}
+
 
 
