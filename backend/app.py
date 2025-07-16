@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///reviews.db'  # indentity of db / configure
 uri = os.environ.get("DATABASE_URL")
-if uri.startswith("postgres://"):
+if uri and uri.startswith("postgres://"):
     uri = uri.replace("postgres://", "postgresql://", 1)
 app.config['SQLALCHEMY_DATABASE_URI'] = uri
 
