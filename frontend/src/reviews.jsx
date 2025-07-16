@@ -13,7 +13,7 @@ const handleKeyPress = (e) => {
       return;
     }
 
-fetch('https://port-backend-jl7a.onrender.com/api/submit', {
+fetch('https://port-bu0p.onrender.com/api/submit', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({ name, comment })
@@ -103,7 +103,7 @@ export function ReviewsTable({ refreshTrigger }) {
   const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
-    fetch('https://port-backend-jl7a.onrender.com/api/comments')
+    fetch('https://port-bu0p.onrender.com/api/comments')
       .then(res => res.json())
       .then(data => setReviews(data))
       .catch(err => console.error('Error fetching reviews:', err));
