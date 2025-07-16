@@ -37,7 +37,7 @@ fetch('https://port-bu0p.onrender.com/api/submit', {
       padding: '20px 0'
     }}>
       <form style={{
-        backgroundColor: '#1e1e1e',
+        backgroundColor: 'transparent', //#1e1e1e if looks bad change this
         padding: '20px',
         borderRadius: '10px',
         width: '90%',
@@ -121,7 +121,7 @@ export function ReviewsTable({ refreshTrigger }) {
       width: '100%',
       borderCollapse: 'collapse',
       fontFamily: 'monospace',
-      backgroundColor: '#1e1e1e',
+      backgroundColor: 'transparent', //#1e1e1e
       color: '#ffffff',
       borderRadius: '8px',
       overflow: 'hidden',
@@ -151,7 +151,7 @@ export function ReviewsTable({ refreshTrigger }) {
               verticalAlign: 'top',
               maxWidth: '120px'
             }}>
-              {review.name}
+              {review.name} said
             </td>
             <td style={{
               padding: '12px 16px',
