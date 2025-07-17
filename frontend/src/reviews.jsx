@@ -137,9 +137,6 @@ export function ReviewsTable({ refreshTrigger }) {
         </tr>
       </thead>
       <tbody>
-      <tr className='customtext'>
-        Comments may take <br/>20-30 seconds to load.<br/> Refresh after it.
-      </tr>
         {reviews.map((review) => (
           <tr key={review.id} style={{ borderTop: '1px solid #333' }}>
             <td style={{
