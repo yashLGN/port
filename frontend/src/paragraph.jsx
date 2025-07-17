@@ -58,15 +58,6 @@ export function TerminalInfo() {
         <span style={{ color: '#ffffff' }}>@</span>
         <span style={{ color: '#4cffa1' }}>yash-machine</span>
         <span style={{ color: '#ffffff' }}>:~$</span>
-        <span className="blinking-cursor" style={{
-          display: 'inline-block',
-          width: '10px',
-          backgroundColor: '#ffffff',
-          marginLeft: '5px',
-          animation: 'blink 1s step-start infinite',
-          height: '1em',
-          verticalAlign: 'bottom'
-        }}></span>
       </div>
 
       <style>
