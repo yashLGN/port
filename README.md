@@ -1,6 +1,6 @@
 # Under Development 
 
-A modern, minimal, and responsive site to showcase my skills, coding journey, and take reviews.
+A modern, minimal, and responsive site to showcase stuff.
 
 ## Beta Live Demo
 
