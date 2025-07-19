@@ -19,6 +19,7 @@ A modern, minimal, and responsive site to showcase stuff.
 
 ### Backend:
 - Flask (for future expansion)
+- Server itself on render ( using uptime for monitoring )
 - PostgreSQL via Neon (sqlite was used but removed becasue of server waking time)
 
 ---
