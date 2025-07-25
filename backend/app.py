@@ -23,7 +23,8 @@ class comments(db.Model):
     name = db.Column(db.String(30), nullable=False)
     comment = db.Column(db.String(80), nullable=False)
 
-with app.app_context(): # creates db 
+with app.app_context(): # creates db
+    print("✅ Flask app started, initializing DB...") 
     db.create_all()
 
 @app.route('/api/submit', methods=['POST'])
