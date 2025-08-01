@@ -2,18 +2,11 @@ import os
 from flask import Flask,request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-from dotenv import load_dotenv
-load_dotenv()
+
 app = Flask(__name__)
 CORS(app)
 
-uri = os.environ.get("DATABASE_URL")
-
-# Only replace if the URI starts with 'postgres://'
-if uri and uri.startswith("postgres://"):
-    uri = uri.replace("postgres://", "postgresql://", 1)
-
-app.config['SQLALCHEMY_DATABASE_URI'] = uri
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///comments.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
@@ -24,7 +17,7 @@ class comments(db.Model):
     comment = db.Column(db.String(80), nullable=False)
 
 with app.app_context(): # creates db
-    print("✅ Flask app started, initializing DB...") 
+    print("Flask app started, initializing DB...") 
     db.create_all()
 
 @app.route('/api/submit', methods=['POST'])
@@ -44,9 +37,9 @@ def submit_comment():
 
 @app.route('/api/comments', methods=['GET'])
 def get_comments():
-    all_comments = comments.query.all()
+    all_comments = comments.query.all() 
     data = [{'id': c.id, 'name': c.name, 'comment': c.comment} for c in all_comments] # keeps getting data from db
     return jsonify(data)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 2000)))
