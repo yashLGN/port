@@ -23,12 +23,3 @@ A modern, minimal, and responsive site to showcase stuff.
 - PostgreSQL via Neon (sqlite was used but removed becasue of server waking time)   
 
 ---
-
-## 📦 Getting Started for now (Frontend - btw you shouldnt't till full release)
-
-```bash
-cd frontend
-npm install
-npm run dev
-
-
